@@ -25,10 +25,15 @@ class messageCollector extends InitialCollector_1.InitialCollector {
     `);
         this.collector.stop(reason ? reason : `No reason specified.`);
     }
-    on({ event }, collector, callback) {
+    on({ event }, callback) {
         const events = ["end", "dispose", "collect"];
         if (!events.includes(event))
             throw new SyntaxError(`${package_json_1.name} -- On(event: string, collector: MessageCollector, callback: Function) Function paramatar "event" was expected to be 'end' | 'collect' | 'dispose' received ${event}`);
+        if (!this.collector)
+            throw new RangeError(`
+    ${package_json_1.name} -- Couldn't find the current collector. Initialize a MessageCollector By using the \`start()\` Function.
+    `);
+        const collector = this.collector;
         switch (event) {
             case "end":
                 collector.on("end", (collected, reason) => {

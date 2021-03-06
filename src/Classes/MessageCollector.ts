@@ -35,13 +35,19 @@ export class messageCollector extends InitialCollector {
     this.collector.stop(reason ? reason : `No reason specified.`);
   }
 
-  on({ event }: events, collector: MessageCollector, callback: Function) {
+  on({ event }: events, callback: Function) {
     const events = ["end", "dispose", "collect"];
     if (!events.includes(event))
       throw new SyntaxError(
         `${name} -- On(event: string, collector: MessageCollector, callback: Function) Function paramatar "event" was expected to be 'end' | 'collect' | 'dispose' received ${event}`
       );
 
+    if (!this.collector)
+      throw new RangeError(`
+    ${name} -- Couldn't find the current collector. Initialize a MessageCollector By using the \`start()\` Function.
+    `);
+
+    const collector = this.collector;
     switch (event) {
       case "end":
         collector.on("end", (collected, reason) => {

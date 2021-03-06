@@ -6,7 +6,7 @@ export declare class messageCollector extends InitialCollector {
     constructor(Obj: Collector);
     start(): MessageCollector;
     stop(reason: string): void;
-    on({ event }: events, collector: MessageCollector, callback: Function): void;
+    on({ event }: events, callback: Function): void;
     resetTimer(Options: resetTimer): void;
     dispose(message: Message): void;
 }
