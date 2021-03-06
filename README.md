@@ -30,7 +30,7 @@ collector.on('dispose', message => { // The message that was disposed of.
 
 collector.resetTimer({ time: 60000, idle: 10000}) // resets the collectors timer read more on the [discord.js guid](https://discord.js.org/#/docs/main/master/class/MessageCollector?scrollTo=resetTimer)
 
-collector.end() // ends the collecter and emits the 'end' event
+collector.stop(`Because i don't want it to run anymore. <optional>`) // ends the collecter and emits the 'end' event
 
 collector.dispose(Discord.Message) // Disposes of a message and emits the 'dispose' event.
 ```
@@ -38,9 +38,16 @@ collector.dispose(Discord.Message) // Disposes of a message and emits the 'dispo
     
 ## Paramaters
 MessageCollector Class
- - **Object**
+- **constructor**
+    - **Object**: Properties Below.
     - **message**: `Discord.Message`
     - **channel**: `Discord.TextChannel | Discord.TextChannel`
     - **max** : number, "The max messages to be collected" DEFAULT OF 1
     - **time** : number, "The set time as were the collector would end." DEFAULT OF 60000
     - **filter**: Function, "The Message Collector filter." DEFAULT OF (m) => m.author.id === message.author.id; 
+- **Functions**
+    - `start()`: Starts the message collector.
+    - `stop(reason<optional>)`: Stops the message collector.
+    - `dispose(message: Discord.Message)`: Disposes of a message and emits the `dispose` event.
+    -  `on(event: "collect" | "end" | "dispose", callback(paramaters))`: listenes for a particular event.
+    -  `resetTimer(Options: {time: number, idle: number})`: Resets the collectors timer.
