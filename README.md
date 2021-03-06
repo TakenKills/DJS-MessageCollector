@@ -28,7 +28,7 @@ collector.on('dispose', message => { // The message that was disposed of.
     console.log(message)
 })
 
-collector.resetTimer({ time: 60000, idle: 10000}) // resets the collectors timer read more on the [discord.js guid](https://discord.js.org/#/docs/main/master/class/MessageCollector?scrollTo=resetTimer)
+collector.resetTimer({ time: 60000, idle: 10000}) // resets the collectors timer read more on the djs guide https://discord.js.org/#/docs/main/master/class/MessageCollector?scrollTo=resetTimer
 
 collector.stop(`Because i don't want it to run anymore. <optional>`) // ends the collecter and emits the 'end' event
 
