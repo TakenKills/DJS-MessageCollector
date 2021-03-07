@@ -4,7 +4,7 @@
     "lib": ["es2016"],
     "module": "commonjs",
     "declaration": true,
-    // "outDir": "dist",
+    "outDir": "dist",
     "removeComments": true,
     "strict": true,
     "strictNullChecks": true,
@@ -21,6 +21,6 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "package"]
+  "include": ["src/**/*", "dist/src/test"],
+  "exclude": ["node_modules", "dist/src/test"]
 }

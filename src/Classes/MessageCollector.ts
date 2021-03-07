@@ -3,14 +3,14 @@ import { name } from "../../package.json";
 import { InitialCollector } from "./InitialCollector";
 
 // Types
-import { Collector, resetTimer, events } from "../types/Collector";
+import { Collector, resetTimer } from "../types/Collector";
 import { Message, MessageCollector } from "discord.js";
 
 export class messageCollector extends InitialCollector {
   collector: MessageCollector | null;
 
   constructor(Obj: Collector) {
-    if (typeof Obj === "object")
+    if (typeof Obj !== "object")
       throw new SyntaxError(
         `${name} -- Paramater of the MessageCollector class expected an object received ${typeof Obj}`
       );
@@ -19,7 +19,7 @@ export class messageCollector extends InitialCollector {
   }
 
   start() {
-    const collector = super.channel.createMessageCollector(this.filter, {
+    const collector = this.channel.createMessageCollector(this.filter, {
       time: this.time,
       max: this.max,
     });
@@ -35,11 +35,11 @@ export class messageCollector extends InitialCollector {
     this.collector.stop(reason ? reason : `No reason specified.`);
   }
 
-  on({ event }: events, callback: Function) {
+  on(event: string, callback: Function) {
     const events = ["end", "dispose", "collect"];
     if (!events.includes(event))
       throw new SyntaxError(
-        `${name} -- On(event: string, collector: MessageCollector, callback: Function) Function paramatar "event" was expected to be 'end' | 'collect' | 'dispose' received ${event}`
+        `${name} -- On(event: string, callback: Function) Function paramatar "event" was expected to be 'end' | 'collect' | 'dispose' received ${event}`
       );
 
     if (!this.collector)

@@ -1,0 +1,20 @@
+{
+    "name": "djs-messagecollector",
+    "version": "1.0.1",
+    "description": "This is a npm package made so you can set up message collectors in discord.js easier and simplier!",
+    "main": "./src/index.js",
+    "types": "./src/Classes/MessageCollector.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "TakenKills",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^12.5.1",
+        "events": "^3.3.0"
+    },
+    "devDependencies": {
+        "@types/events": "^3.0.0",
+        "@types/node": "^14.14.32"
+    }
+}

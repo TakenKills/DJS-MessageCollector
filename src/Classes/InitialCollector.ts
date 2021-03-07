@@ -20,11 +20,7 @@ export class InitialCollector {
       );
 
     this.message = Obj.message;
-    this.channel = Obj.message
-      ? Obj.channel
-        ? Obj.channel
-        : Obj.message.channel
-      : Obj.channel;
+    this.channel = Obj.message ? Obj.message.channel : Obj.channel
     this.max = Obj.max ? Obj.max : defaults.max;
     this.time = Obj.time ? Obj.time : defaults.time;
     this.filter = Obj.filter
