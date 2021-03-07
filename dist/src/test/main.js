@@ -22,4 +22,4 @@ client.on('message', message => {
         console.log('Good to go and ready to mingle.')
     })
 
-client.login('ODA0MDQwMTE3MzUzMzE2NDIy.YBGitg.PbAF8PhqFlL0_opE8N0JnKpaeTA')
+client.login('hehe boi you tried')
