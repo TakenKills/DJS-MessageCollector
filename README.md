@@ -41,7 +41,7 @@ MessageCollector Class
 - **constructor**
     - **Object**: Properties Below.
     - **message**: `Discord.Message`
-    - **channel**: `Discord.TextChannel | Discord.TextChannel`
+    - **channel**: `Discord.TextChannel | Discord.DMChannel`
     - **max** : number, "The max messages to be collected" DEFAULT OF 1
     - **time** : number, "The set time as were the collector would end." DEFAULT OF 60000
     - **filter**: Function, "The Message Collector filter." DEFAULT OF (m) => m.author.id === message.author.id; 
